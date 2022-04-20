@@ -97,6 +97,9 @@ console.log(j39People);
 
 ////////////////////////////////////////////////////////////////////////////////
 // 2. Objetos
+console.log('==========');
+console.log('2. Objetos');
+
 console.log("\nObjeto 'ordenador'");
 const ordenador = {
     marca: "La pava",
@@ -297,6 +300,8 @@ if (arr[2].name[0] === "J") {
 
 ////////////////////////////////////////////////////////////////////////////////
 // 3. Funciones
+console.log('============');
+console.log('3. Funciones');
 
 console.log("\nFunciones");
 
@@ -560,8 +565,8 @@ const checkPasswordApp = () => {
 // /: divide los operandos, este debe dar un resultado con decimales (double)
 // ^: 1o operando como base y 2o como exponente.
 // %: módulo, resto de la división entre operando1 y operando2.
-console.log("\ncalculadoraInversa: ");
-const calculadoraInversa = () => {
+console.log("\nreverseCalculator: click button or execute 'reverseCalculator()'");
+const reverseCalculator = () => {
     const operand1 = prompt("Input first operand:");
     const operand2 = prompt("Input second operand:");
     const operator = prompt("Input operator (+ - * / ^ %):");
