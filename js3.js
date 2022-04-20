@@ -308,11 +308,11 @@ const convierteString = (num) =>
     'Debo ser ejecutada con un número' :
     num.toString();
 
-console.log(convierteString('4'));
-console.log(convierteString(4));
+console.log('4', convierteString('4'));
+console.log(4, convierteString(4));
 
 // Si la función no recibe un dato tipo number debe devolver el string 'Debo ser ejecutada con un número'
-console.log(convierteString('alpargata'));
+console.log('alpargata', convierteString('alpargata'));
 
 
 // Crea la función caracterInicial  debe recibir un tipo string y devolver un string con el primer carácter.
@@ -323,13 +323,13 @@ const caracterInicial = (s) =>
         s.length > 0 ? s[0] : 'Debo ser ejecutada con un string no vacío' :
     'Debo ser ejecutada con un string';
 
-console.log(caracterInicial('Hola'));
+console.log('Hola', caracterInicial('Hola'));
 
 // Si la función no recibe un dato tipo string debe devolver el string 'Debo ser ejecutada con un string'.
-console.log(caracterInicial(String));
+console.log(String, caracterInicial(String));
 
 // Si recibe un string vacío debe devolver 'Debo ser ejecutada con un string no vacío'
-console.log(caracterInicial(""));
+console.log("", caracterInicial(""));
 
 // Crea la función ultimoCaracter debe recibir un tipo string y devolver un string con el último carácter.
 console.log("\nÚltimo carácter");
@@ -339,13 +339,13 @@ const ultimoCaracter = (s) =>
         s.length > 0 ? s.slice(-1) : 'Debo ser ejecutada con un string no vacío' :
     'Debo ser ejecutada con un string';
 
-console.log(ultimoCaracter('Hola'));
+console.log('Hola', ultimoCaracter('Hola'));
 
 // Si la función no recibe un dato tipo string debe devolver el string 'Debo ser ejecutada con un string'.
-console.log(ultimoCaracter(String));
+console.log(String, ultimoCaracter(String));
 
 // Si recibe un string vacío debe devolver 'Debo ser ejecutada con un string no vacío'
-console.log(ultimoCaracter(''));
+console.log('', ultimoCaracter(''));
 
 // Crea la función cuentaCaracteres debe recibir un tipo string y devolver un number con el número de carácteres
 console.log("\ncuentaCaracteres");
@@ -362,17 +362,52 @@ console.log(String, cuentaCaracteres(String));
 console.log('', cuentaCaracteres(''));
 
 // Crea la función getCiudadesOrdenada. La función recibirá una cadena de texto de ciudades separadas por comas y devolverá un array de ciudades ordenadas alfabéticamente si la función no recibe una cadena de texto o recibe una cadena de texto sin comas debe devolver 'no es un formato correcto'
-// console.log("\ngetCiudadesOrdenada");
+console.log("\ngetCiudadesOrdenada");
 
-// const getCiudadesOrdenada = (s) =>
+const getCiudadesOrdenada = (ciudades) => {
+
+    if (typeof ciudades === 'string') {
+        ciudades = ciudades.split(',');
+        if (ciudades.length > 1) {
+            return ciudades.sort((a,b)=>a.localeCompare(b));
+        }
+    }
+    return 'no es un formato correcto';
+};
+
+console.log(NaN, getCiudadesOrdenada(NaN));
+console.log("Catamarruc", getCiudadesOrdenada("Catamarruc"));
+console.log(
+    "Catamarruc,Riola,Villar del Arzobispo,Mora de Rubielos,Rascafría,Peralejos de las Truchas,Ávila,Albacete",
+    getCiudadesOrdenada("Catamarruc,Riola,Villar del Arzobispo,Mora de Rubielos,Rascafría,Peralejos de las Truchas,Ávila,Albacete")
+);
 
 // Un palíndromo es una palabra que se escribe igual del derecho que del revés
 // por ejemplo orejero, rallar o somos.  Crea la función esPalindromo que recibirá
 // una cadena de texto y deberá devolver si es un palíndromo o no.
-
+console.log("\nesPalindromo:");
+const esPalindromo = (pal, start=0, end=null) => {
+    if (typeof pal !== 'string' || pal.length === 0) {
+        return 'no es un formato correcto';
+    }
+    if (end===null) {
+        end = pal.length-1;
+    }
+    if (end <= start) {
+        return 'SÍ es palíndromo';
+    }
+    if (pal[start] !== pal[end]) {
+        return 'no es palíndromo';
+    }
+    return esPalindromo(pal, start+1, end-1);
+};
 
 // Si la función no recibe una cadena de texto o está vacía 'no es un formato
 // correcto'
+console.log(34, esPalindromo(34));
+console.log("orejero", esPalindromo("orejero"));
+console.log("dabalearrozalazorraelabad", esPalindromo("dabalearrozalazorraelabad"));
+console.log("entendederas", esPalindromo("entendederas"));
 
 
 // Crea la función getPrecioMostrar para que devuelva una cadena de texto con
