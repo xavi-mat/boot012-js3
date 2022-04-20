@@ -412,39 +412,88 @@ console.log("entendederas", esPalindromo("entendederas"));
 
 // Crea la función getPrecioMostrar para que devuelva una cadena de texto con
 // formato precio con dos decimales. Para 2 debería devolver 2.00 €.
+console.log("\ngetPrecioMostrar");
+const getPrecioMostrar = (num) =>
+    !isNaN(Number(num)) ?
+    (num*1).toFixed(2) + ' €' :
+    'no es un formato correcto';
 
+console.log("getPrecioMostrar(2)", getPrecioMostrar(2));
+console.log("getPrecioMostrar('5.5')", getPrecioMostrar('5.5'));
 
 // Si la función no recibe un número debería devolver devolver 'no es un formato
 // correcto'
+console.log("getPrecioMostrar('Hola')", getPrecioMostrar('Hola'));
+console.log("getPrecioMostrar('56.754')", getPrecioMostrar('56.754'));
 
 
 // Crea la función division que acepte como argumento dos números y devuelva el
 // resultado de su división
+console.log("\nDivisión");
+const division = (dividendo, divisor) =>
+    !isNaN(Number(dividendo)) && !isNaN(Number(divisor)) ?
+    dividendo / divisor :
+    'no son dos números correctos';
 
+console.log("division(4,5)", division(4,5));
+console.log("division('4',5)", division('4',5));
+console.log("division('x',5)", division('x',5));
 
 //  Crea la función esPar que acepte como argumento un número y devuelva true si
 // es par y false si es impar
+console.log("\nesPar");
+const esPar = (num) => !isNaN(num) && !(num % 2);
+
+console.log("esPar(4)", esPar(4));
+console.log("esPar(77)", esPar(77));
+console.log("esPar('80')", esPar('80'));
+console.log("esPar('YY')", esPar('YY'));
 
 
 // Crear la función ordenarArray2 que acepta como argumento un array de números
 // y devuelva un array ordenado de mayor a menor
+console.log("\nordenarArray2");
+const ordenarArray2 = (array) =>
+    array.every((e)=>!isNaN(e)) ?
+    array.sort((a,b)=>Number(b)-Number(a)) :
+    null;
 
+console.log("ordenarArray2([1,5,2,4,3])", ordenarArray2([1,5,2,4,3]));
+console.log("ordenarArray2([1,5,'2',4,3])", ordenarArray2([1,5,'2',4,3]));
+console.log("ordenarArray2([1,5,'x',4,3])", ordenarArray2([1,5,'x',4,3]));
 
 // Crear la función obtenerImpares que acepta como argumento un array de números
 // y devuelva un array con los elementos impares
+console.log("\nobtenerImpares");
+const obtenerImpares = (array) => array.filter((num)=>!esPar(num));
 
+console.log("obtenerImpares([1,5,2,4,3])", obtenerImpares([1,5,2,4,3]));
+console.log("obtenerImpares([4,6,8])", obtenerImpares([4,6,8]));
+console.log("obtenerImpares([3,5,7,9])", obtenerImpares([3,5,7,9]));
 
 // Crear la función sumarArray que acepte como argumento un array numérico y
 // devuelva la suma de los números en el array Array: [1, 2, 3] resultado: 6
+console.log("\nsumarArray");
+const sumarArray = (array) => array.reduce((total, num)=>total+num);
 
+console.log("sumarArray([1,2,3,4])", sumarArray([1,2,3,4]));
+console.log("sumarArray([1,2,3,4,5,6,7,8,9,10])", sumarArray([1,2,3,4,5,6,7,8,9,10]));
 
 // Crear la función multiplicarArray que acepte como argumento un array numérico
 // y devuelva la multiplicación de los números en el array Array: [2, 3, 4] resultado: 24
+console.log("\nmultiplicarArray");
+const multiplicarArray = (array) => array.reduce((total, num)=>total*num);
 
+console.log("sumarArray([1,2,3,4])", multiplicarArray([1,2,3,4]));
+console.log(
+    "sumarArray([1,2,3,4,5,6,7,8,9,10])",
+    multiplicarArray([1,2,3,4,5,6,7,8,9,10])
+);
 
 // Crea una función que dada una array de números, devuelve una nueva array que
 // tenga solo los números que son 5 o más. Ejemplo entrada [3, 6, 8, 2] salida [6, 8]
-
+console.log("\ncincoOMas");
+const cincoOMas = (array) => array.filter()
 
 // Crea una aplicación que nos pida un número por prompt y con un método se lo
 // pasamos por parámetro para que nos indique si es o no un número primo, debe
